@@ -77,15 +77,15 @@
 
         async function getChars() {
             try {
-                let res = await fetch("https://api.disneyapi.dev/characters");
+                let res = await fetch("https://raw.githubusercontent.com/prmane03/Disney-Characters/main/DisneyCharactersJson.json");
                 var result = await res.json();
-                alldata=result.data
-                for(let i=2;i<=result.totalPages;i++){
-                    let res = await fetch("https://api.disneyapi.dev/characters?page="+i);
-                    var temp = await res.json();
-                    alldata = alldata.concat(temp.data)
-                }
-                data = alldata.filter(
+//                 alldata=result.data
+//                 for(let i=2;i<=result.totalPages;i++){
+//                     let res = await fetch("https://api.disneyapi.dev/characters?page="+i);
+//                     var temp = await res.json();
+//                     alldata = alldata.concat(temp.data)
+//                 }
+                data = result.filter(
                     function(result){ return result.name.includes(searchInput.value)}
                 );
                 document.getElementById("chars").innerHTML = ''
