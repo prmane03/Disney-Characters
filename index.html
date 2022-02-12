@@ -85,6 +85,15 @@
 //                     var temp = await res.json();
 //                     alldata = alldata.concat(temp.data)
 //                 }
+
+                // Setting loader
+
+                let opt = document.createElement('option');
+                opt.innerHTML = "<span class='text-blue-500 font-bold text-center text-sm'>Loading Name ...</span>"
+                opt.setAttribute("data-value",dict["_id"]) 
+                document.getElementById("chars").appendChild(opt)
+
+
                 data = result.filter(
                     function(result){ return result.name.includes(searchInput.value)}
                 );
