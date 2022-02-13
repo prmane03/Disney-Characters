@@ -42,7 +42,7 @@
     </div>
     <datalist id="chars">
         
-    </datalist>
+    </datalist>]
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12" id="dataContainer">
     
 </section>  
@@ -88,18 +88,14 @@
 
                 // Setting loader
 
-                let opt = document.createElement('option');
-                opt.innerHTML = "<span class='text-blue-500 font-bold text-center text-sm'>Loading Name ...</span>"
-                document.getElementById("chars").appendChild(opt)
-
-
+               
                 data = result.filter(
-                    function(result){ return result.name.includes(searchInput.value)}
+                    (result)=>{ return result.name.toString().toLowerCase().includes(searchInput.value.toString().toLowerCase())}
                 );
                 document.getElementById("chars").innerHTML = ''
                 
                 data.forEach((dict,idx) => {
-                    if(idx <5){
+                    if(idx <7){
                         let opt = document.createElement('option');
                         opt.value = dict["_id"]+" : "+dict['name'];
                         opt.setAttribute("data-value",dict["_id"]) 
