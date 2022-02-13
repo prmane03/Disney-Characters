@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/waltograph-disney" type="text/css"/>
     <script>
       tailwind.config = {
         theme: {
@@ -24,10 +29,21 @@
         .text-shadow-lg{
             text-shadow: 5px 5px 5px black;
         }
+        body{
+            background-image: url("https://source.unsplash.com/random/900%C3%97700/?disney");
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        .disney-font{
+            font-family: 'WaltographRegular';
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 <body class="w-full">
-    <h2 class="my-4 text-blue-500 text-2xl font-bold text-center ">Search Disney Characters</h2>
+        <h2 class="my-4 text-blue-500 text-2xl font-bold text-center "><span class="p-2 my-2 text-4xl bg-white opacity-90 disney-font rounded-lg shadow-lg" style="text-shadow:1px 1px 2px gray">Search Disney Characters</span></h2>
+ 
     <div class="flex justify-center">
         <div class="mb-3 xl:w-96">
           <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
@@ -43,7 +59,7 @@
     <datalist id="chars">
         
     </datalist>]
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12" id="dataContainer">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 pb-12 pt-4" id="dataContainer">
     
 </section>  
 
@@ -63,7 +79,7 @@
                
                 document.getElementById("dataContainer").innerHTML = ''
                 
-                let d ='<div class="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row"><div class="w-full md:w-2/5 h-auto"><img class="object-center object-cover w-full h-full" src="'+result.imageUrl+'" alt="photo"></div><div class="w-full md:w-3/5 text-left p-4 md:p-4 space-y-2"><p class="text-xl text-gray-700 font-bold">'+result.name+'</p><p class="text-base text-blue-500 font-bold">Appearance</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Films : </span>'+result.films.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Short Films : </span>'+result.shortFilms.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Tv Shows : </span>'+result.tvShows.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Video Games : </span>'+result.videoGames.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Allies : </span>'+result.allies.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Enemies : </span>'+result.enemies.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900">Park Attractions :    </span>'+result.parkAttractions.join(", ")+'</p></div></div>'
+                let d ='<div class="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row"><div class="w-full md:w-2/5 h-auto"><img class="object-center object-cover w-full h-full" src="'+result.imageUrl+'" alt="photo" onerror="this.src=\'./img/NoImageFound.png\';"></div><div class="w-full md:w-3/5 text-left p-4 md:p-4 space-y-2"><p class="text-xl text-gray-700 font-bold">'+result.name+'</p><p class="text-base text-blue-500 font-bold">Appearances</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-film"></i>Films : </span>'+result.films.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-video"></i>Short Films : </span>'+result.shortFilms.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-tv"></i>Tv Shows : </span>'+result.tvShows.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-gamepad"></i>Video Games : </span>'+result.videoGames.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-handshake-angle"></i>Allies : </span>'+result.allies.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-solid fa-skull-crossbones"></i>Enemies : </span>'+result.enemies.join(", ")+'</p><p class="text-base leading-relaxed text-gray-500 font-normal"><span class="font-bold text-blue-900"><i class="mr-2 fa-brands fa-fort-awesome"></i>Park Attractions : </span>'+result.parkAttractions.join(", ")+'</p></div></div>'
                 document.getElementById("dataContainer").insertAdjacentHTML("afterbegin",d)
                 
             }catch (error) {    
