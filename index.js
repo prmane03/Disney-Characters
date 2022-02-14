@@ -1,4 +1,4 @@
- <script>
+
         var searchInput = document.getElementById("searchInput")
         var searchButton = document.getElementById("searchButton")
 
@@ -59,4 +59,3 @@
                 console.log(error);
             }
         }
-    </script>
